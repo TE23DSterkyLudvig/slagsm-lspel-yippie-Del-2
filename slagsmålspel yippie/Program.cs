@@ -2,6 +2,10 @@
 String name2 = "Felix";
 string name3 = "Noah";
 string kämpenamn = "";
+string Fichoice = "";                    //Alltså fighting val
+string Fichoice2 = "";
+string Fichoice3 = "";
+
 
 int Hp1 = 100;
 int Hp2 = 100;
@@ -93,15 +97,35 @@ Tryck på enter för att börja spelet");
     {
         while (Hp1 > 0 && Hp3 > 0)
         {
-            int skada1 = Random.Shared.Next(5, 35);
+            int skada1 = Random.Shared.Next(2, 35);
             int skada3 = Random.Shared.Next(5, 20);
+            int spark  = Random.Shared.Next(1,50);
+            int tombstone = Random.Shared.Next(0,60);
+            int spark3 = Random.Shared.Next(20-30);
+            int tombstone3 = Random.Shared.Next(7-49);
             //skada1 *= 1;
             //skada2 *= 1;
+            Console.WriteLine($"ska {name1} Sparka, Slå Eller Tombstona");
+            Fichoice = Console.ReadLine();
 
-            Console.WriteLine($"{name1} slår {name3} och {name3} tar {skada3} i skada");
-            Console.WriteLine($"{name3} slår {name1} och {name1} tar {skada1} i skada");
-            Hp1 -= skada3;
-            Hp3 -= skada1;
+            if(Fichoice.ToLower() == "slå"){
+                Console.WriteLine($"{name1} slår {name3} och {name3} tar {skada1} i skada");
+                 Hp3 -= skada1;
+            }
+
+            if (Fichoice.ToLower() == "sparka"){
+                Console.WriteLine($"{name1} sparkar {name3} och {name3} tar {spark} i skada");
+                Hp3 -= spark;
+            }
+
+            if(Fichoice.ToLower() == "Tombstona"){
+                Console.WriteLine($"{name1} tombstonar {name3} och {name3} tar {tombstone} i skada");
+                Hp3 -= tombstone;
+            }
+            
+            Console.WriteLine($"Ska {name3} slå,sparka eller tombstona");
+            Fichoice2 = Console.ReadLine();
+           
 
             Hp1 = Math.Max(0, Hp1);
             Hp3 = Math.Max(0, Hp3);
@@ -146,5 +170,6 @@ Tryck på enter för att börja spelet");
         }
     }
 }
+
 
 Console.ReadLine();
