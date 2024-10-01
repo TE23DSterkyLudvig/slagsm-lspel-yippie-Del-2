@@ -1,17 +1,21 @@
-﻿String name1 = "";
+﻿
+
+ fight();
+static void fight(){
+
+String name1 = "";
 String name2 = "Felix";
 string name3 = "Noah";
 string kämpenamn = "";
 string Fichoice = "";                    //Alltså fighting val
 string Fichoice2 = "";
 string Fichoice3 = "";
+string svarigen = "";
 
 
 int Hp1 = 100;
 int Hp2 = 100;
 int Hp3 = 120;
-
-
 
 System.Console.WriteLine("Vad vill du heta?");
 name1 = Console.ReadLine();
@@ -43,7 +47,8 @@ Tryck på enter för att börja spelet");
             //skada1 *= 1;
             //skada2 *= 1;
 
-            Console.WriteLine($"ska {name1} Sparka skriv 2, Slå skriv 1 Eller Tombstona skriv 3");
+            Console.WriteLine($"ska {name1} Sparka, Slå Eller Tombstona");
+            Console.WriteLine("Skriv 1 för att slå. Skriva 2 För att sparka. Skriv 3 för att tombstona");
             Fichoice = Console.ReadLine();
 
             while (Fichoice != "3" && Fichoice != "2" && Fichoice != "1")
@@ -72,7 +77,8 @@ Tryck på enter för att börja spelet");
 
 
 
-            Console.WriteLine($"ska {name2} uppercuta skriv 2, Slå skriv 1 Eller skjuta skriv 3");
+            Console.WriteLine($"ska {name2} uppercuta, Slå Eller skjuta");
+            Console.WriteLine("Skriv 1 för att slå. Skriv 2 för att Uppercuta. Skriv 3 för att skjuta.");
             Fichoice2 = Console.ReadLine();
 
             while (Fichoice2 != "3" && Fichoice2 != "2" && Fichoice2 != "1")
@@ -115,9 +121,9 @@ Tryck på enter för att börja spelet");
     if (Hp2 <= 0)
     {
         System.Console.WriteLine($" {name1} van med {Hp1} hälsa kvar ");
-        System.Console.WriteLine("Tryck på enter för att avsluta spelet");
+        System.Console.WriteLine("Tryck på Tab för att avsluta spelet eller enter för att få fram fråga om att starta om");
         var stopp = Console.ReadKey(true);
-        if (stopp.Key == ConsoleKey.Enter)
+        if (stopp.Key == ConsoleKey.Tab)
         {
             Environment.Exit(0);
         }
@@ -126,9 +132,9 @@ Tryck på enter för att börja spelet");
     if (Hp1 <= 0)
     {
         System.Console.WriteLine($" Felix van med {Hp2} hälsa kvar ");
-        System.Console.WriteLine("Tryck på enter för att avsluta spelet");
+        System.Console.WriteLine("Tryck på Tab för att avsluta spelet eller enter för att få fram fråga om att starta om");
         var stopp = Console.ReadKey(true);
-        if (stopp.Key == ConsoleKey.Enter)
+        if (stopp.Key == ConsoleKey.Tab)
         {
             Environment.Exit(0);
         }
@@ -137,14 +143,24 @@ Tryck på enter för att börja spelet");
     if (Hp1 == 0 && Hp2 == 0)
     {
         System.Console.WriteLine(" Ingen vann för att båda dog.");
-        System.Console.WriteLine(" Tryck på enter för att avsluta spelet.");
+        System.Console.WriteLine(" Tryck på Tab för att avsluta spelet eller enter för att få fram fråga om att starta om.");
         var stopp = Console.ReadKey(true);
-        if (stopp.Key == ConsoleKey.Enter)
+        if (stopp.Key == ConsoleKey.Tab)
         {
             Environment.Exit(0);
         }
     }
+    System.Console.WriteLine("Vill du spela igen?");
+    svarigen = Console.ReadLine();
+    if(svarigen.ToLower() == "ja"){
+        fight();
+    }
+    else if(svarigen.ToLower() == "nej")
+    {
+      Environment.Exit(0);
+    }
 }
+
 
 if (kämpenamn.ToLower() == "noah")
 {
@@ -163,7 +179,8 @@ Tryck på enter för att börja spelet");
             int tombstone3 = Random.Shared.Next(7, 49);
             //skada1 *= 1;
             //skada2 *= 1;
-            Console.WriteLine($"ska {name1} Sparka, skriv 2 eller Slå skriv 1 Eller Tombstona, skriv 3");
+            Console.WriteLine($"ska {name1} Sparka, slå Eller Tombstona");
+            System.Console.WriteLine("Skriv 1 för att Slå. Skriv 2 för att sparka. Skriv 3 för att tombstona");
             Fichoice = Console.ReadLine();
 
             while (Fichoice != "3" && Fichoice != "2" && Fichoice != "1")
@@ -235,7 +252,7 @@ Tryck på enter för att börja spelet");
     if (Hp3 <= 0)
     {
         System.Console.WriteLine($" {name1} van med {Hp1} hälsa kvar ");
-        System.Console.WriteLine("Tryck på tab för att avsluta spelet");
+        System.Console.WriteLine("Tryck på tab för att avsluta spelet eller enter för att få fram fråga om att starta om");
         var stopp = Console.ReadKey(true);
         if (stopp.Key == ConsoleKey.Tab)
         {
@@ -247,7 +264,7 @@ Tryck på enter för att börja spelet");
     if (Hp1 <= 0)
     {
         System.Console.WriteLine($" noah vann med {Hp3} hälsa kvar ");
-        System.Console.WriteLine("Tryck på tab för att avsluta spelet");
+        System.Console.WriteLine("Tryck på tab för att avsluta spelet eller enter för att få fram fråga om att starta om");
         var stopp = Console.ReadKey(true);
         if (stopp.Key == ConsoleKey.Tab)
         {
@@ -258,13 +275,24 @@ Tryck på enter för att börja spelet");
     if (Hp1 == 0 && Hp3 == 0)
     {
         System.Console.WriteLine(" Ingen vann för att båda dog.");
-        System.Console.WriteLine(" Tryck på Tab för att avsluta spelet.");
+        System.Console.WriteLine(" Tryck på Tab för att avsluta spelet eller enter för att få fram fråga om att starta om.");
         var stopp = Console.ReadKey(true);
         if (stopp.Key == ConsoleKey.Tab)
         {
             Environment.Exit(0);
         }
     }
+    System.Console.WriteLine("Vill du spela igen?");
+    svarigen = Console.ReadLine();
+    if(svarigen.ToLower() == "ja"){
+        fight();
+    }
+    else if(svarigen.ToLower() == "nej")
+    {
+      Environment.Exit(0);
+    }
+}
+
 }
 
 
