@@ -150,6 +150,7 @@ Tryck på enter för att börja spelet");
             Environment.Exit(0);
         }
     }
+    if(key.Key == ConsoleKey.Enter)
     System.Console.WriteLine("Vill du spela igen?");
     svarigen = Console.ReadLine();
     if(svarigen.ToLower() == "ja"){
